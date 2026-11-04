@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI.PRO - Настройка ИИ и нейросетей под ключ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0A0A0A; color: #FFFFFF; scroll-behavior: smooth; }
+        h1, h2, h3, h4, h5, h6, .bebas { font-family: 'Oswald', sans-serif; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
+        .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-in-out; }
+        .fade-in.show { opacity: 1; transform: translateY(0); }
+        header.scrolled { backdrop-filter: blur(10px); background-color: rgba(10,10,10,0.95); }
+        .glow-emerald { box-shadow: 0 0 30px rgba(16, 185, 129, 0.3); }
+        details[open] summary::after { transform: rotate(180deg); }
+        summary::after { content: '▼'; float: right; transition: transform 0.3s; color: #10B981; }
+        summary { list-style: none; }
+        summary::-webkit-details-marker { display: none; }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="fixed w-full bg-[#0A0A0A]/80 border-b border-[#222222] top-0 z-50 transition-all duration-300">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="text-2xl text-[#10B981] font-black bebas">AI.PRO</div>
+        <nav class="hidden md:flex space-x-8">
+            <a href="#services" class="text-gray-400 hover:text-emerald-500 transition">Услуги</a>
+            <a href="#pricing" class="text-gray-400 hover:text-emerald-500 transition">Тарифы</a>
+            <a href="#blog" class="text-gray-400 hover:text-emerald-500 transition">Блог</a>
+            <a href="#contacts" class="text-gray-400 hover:text-emerald-500 transition">Контакты</a>
+        </nav>
+        <a href="https://t.me/Vladis345" class="bg-emerald-500 text-white px-6 py-2 rounded-lg hover:bg-emerald-600 transition font-semibold">Telegram</a>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl"></div>
+    
+    <div class="container mx-auto px-6 text-center relative z-10 fade-in">
+        <p class="text-emerald-500 mb-4 font-semibold tracking-wider">ИИ-РЕШЕНИЯ ДЛЯ БИЗНЕСА И ФРИЛАНСА</p>
+        <h1 class="text-6xl md:text-7xl lg:text-8xl font-black bebas mb-6 leading-tight">НАСТРОЙКА НЕЙРОСЕТЕЙ ПОД КЛЮЧ</h1>
+        <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">ИИ-ассистент, генерация картинок, оживление фото и подписка на GPT без VPN</p>
+        <div class="flex flex-col md:flex-row gap-4 justify-center">
+            <a href="https://t.me/Vladis345" class="bg-emerald-500 text-white px-8 py-4 rounded-full hover:bg-emerald-600 transition font-bold text-lg glow-emerald">Написать в Telegram</a>
+            <a href="#pricing" class="border border-emerald-500 text-emerald-500 px-8 py-4 rounded-full hover:bg-emerald-900/30 transition font-bold text-lg">Смотреть тарифы</a>
+        </div>
+        
+        <!-- Счётчики -->
+        <div class="mt-16 flex flex-wrap justify-center gap-8 md:gap-16">
+            <div>
+                <p class="text-4xl font-bold text-emerald-500">50+</p>
+                <p class="text-gray-400 text-sm mt-1">Настроено ассистентов</p>
+            </div>
+            <div>
+                <p class="text-4xl font-bold text-emerald-500">100+</p>
+                <p class="text-gray-400 text-sm mt-1">Довольных клиентов</p>
+            </div>
+            <div>
+                <p class="text-4xl font-bold text-emerald-500">5.0</p>
+                <p class="text-gray-400 text-sm mt-1">Рейтинг на Авито</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ДЛЯ КОГО ЭТО -->
+<section class="py-20 bg-[#111111]">
+    <div class="container mx-auto px-6">
+        <p class="text-emerald-500 text-center mb-4 font-semibold tracking-wider fade-in">КОМУ ПОДОЙДЁТ</p>
+        <h2 class="text-5xl md:text-6xl font-black bebas text-white text-center mb-4 fade-in">ДЛЯ КОГО ЭТО</h2>
+        <p class="text-gray-400 text-center mb-16 text-lg fade-in">ИИ-инструменты экономят время и деньги в любой сфере</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <div class="bg-[#0A0A0A] border border-[#222222] rounded-xl p-8 text-center hover:border-emerald-500 transition-all duration-300 hover:-translate-y-2 fade-in">
+                <div class="text-5xl mb-4">💼</div>
+                <h3 class="text-xl font-bold text-white mb-3">Фрилансерам</h3>
+                <p class="text-gray-400 text-sm">Ускорь работу в 3 раза: тексты, переводы, идеи — всё делает ИИ</p>
+            </div>
+
+            <div class="bg-[#0A0A0A] border border-[#222222] rounded-xl p-8 text-center hover:border-emerald-500 transition-all duration-300 hover:-translate-y-2 fade-in">
+                <div class="text-5xl mb-4">📱</div>
+                <h3 class="text-xl font-bold text-white mb-3">SMM-щикам</h3>
+                <p class="text-gray-400 text-sm">Генерируй посты, картинки и видео за минуты вместо часов</p>
+            </div>
+
+            <div class="bg-[#0A0A0A] border border-[#222222] rounded-xl p-8 text-center hover:border-emerald-500 transition-all duration-300 hover:-translate-y-2 fade-in">
+                <div class="text-5xl mb-4">🎓</div>
+                <h3 class="text-xl font-bold text-white mb-3">Студентам</h3>
+                <p class="text-gray-400 text-sm">Учёба, курсовые, переводы — ИИ поможет справиться быстрее</p>
+            </div>
+
+            <div class="bg-[#0A0A0A] border border-[#222222] rounded-xl p-8 text-center hover:border-emerald-500 transition-all duration-300 hover:-translate-y-2 fade-in">
+                <div class="text-5xl mb-4">🚀</div>
+                <h3 class="text-xl font-bold text-white mb-3">Предпринимателям</h3>
+                <p class="text-gray-400 text-sm">Автоматизируй рутину: ответы клиентам, аналитика, контент</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ИИ-АССИСТЕНТ -->
+<section id="pricing" class="py-20 bg-[#0A0A0A]">
+    <div class="container mx-auto px-6">
+        <p class="text-emerald-500 text-center mb-4 font-semibold tracking-wider fade-in">ФЛАГМАНСКАЯ УСЛУГА</p>
+        <h2 class="text-5xl md:text-6xl font-black bebas text-white text-center mb-4 fade-in">ИИ-АССИСТЕНТ</h2>
+        <p class="text-gray-400 text-center mb-16 text-lg fade-in">Настрою и научу работать с нейросетями на твоём компьютере</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            
+            <!-- Гайд -->
+            <div class="bg-[#111111] border border-[#222222] rounded-xl p-8 hover:border-emerald-500 transition-all duration-300 fade-in">
+                <h3 class="text-3xl font-black bebas text-white text-center mb-4">ГАЙД</h3>
+                <p class="text-emerald-500 text-4xl font-bold text-center mb-8">790 ₽</p>
+                <ul class="space-y-3 mb-8">
+                    <li class="text-gray-400 flex items-start"><span class="text-emerald-500 mr-2 font-bold">✓</span> PDF с пошаговой установкой Cline + VS Code + Qwen</li>
+                    <li class="text-gray-400 flex items-start"><span class="text-emerald-500 mr-2 font-bold">✓</span> Библиотека готовых промтов</li>
+                    <li class="text-gray-400 flex items-start"><span class="text-emerald-500 mr-2 font-bold">✓</span> Для самостоятельной настройки</li>
+                </ul>
+                <a href="https://t.me/Vladis345" class="block text-center border border-emerald-500 text-emerald-500 py-3 rounded-lg hover:bg-emerald-900/30 transition font-semibold">Купить гайд</a>
+            </div>
+
+            <!-- Профи -->
+            <div class="bg-gradient-to-br from-[#111111] to-[#0d2818] border-2 border-emerald-500 rounded-xl p-8 relative fade-in">
+                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-orange-500 text-white px-4 py-1 rounded-full text-sm font-bold">РЕКОМЕНДУЕМ</div>
+                <h3 class="text-3xl font-black bebas text-white text-center mb-4 mt-4">ПРОФИ</h3>
+                <p class="text-emerald-500 text-4xl font-bold text-center mb-8">3000 ₽</p>
+                <ul class="space-y-3 mb-8">
+                    <li class="text-white flex items-start"><span class="text-emerald-500 mr-2 font-bold">✓</span> Полная настройка ИИ-ассистента под ключ</li>
+                    <li class="text-white flex items-start"><span class="text-emerald-500 mr-2 font-bold">✓</span> Созвон-обучение 1.5 часа</li>
+                    <li class="text-white flex items-start"><span class="text-emerald-500 mr-2 font-bold">✓</span> Личная поддержка 7 дней</li>
+                    <li class="text-white flex items-start"><span class="text-emerald-500 mr-2 font-bold">🎁</span> Пробная подписка или 3 генерации картинок</li>
+                </ul>
+                <a href="https://t.me/Vladis345" class="block text-center bg-emerald-500 text-white py-3 rounded-lg hover:bg-emerald-600 transition font-bold">Заказать настройку</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ -->
+<section id="services" class="py-20 bg-[#111111]">
+    <div class="container mx-auto px-6">
+        <p class="text-emerald-500 text-center mb-4 font-semibold tracking-wider fade-in">ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ</p>
+        <h2 class="text-5xl md:text-6xl font-black bebas text-white text-center mb-4 fade-in">ВСЁ В ОДНОМ МЕСТЕ</h2>
+        <p class="text-gray-400 text-center mb-16 text-lg fade-in">Всё, что нужно для работы с ИИ — без VPN и иностранных карт</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Генерация картинок -->
+            <div class="bg-[#0A0A0A] border border-[#222222] rounded-xl p-8 hover:border-emerald-500 transition-all duration-300 hover:-translate-y-2 fade-in">
+                <div class="text-6xl mb-6">🎨</div>
+                <h3 class="text-2xl font-bold text-white mb-4">ГЕНЕРАЦИЯ КАРТИНОК</h3>
+                <p class="text-gray-400 mb-6">Создам изображения по твоему описанию через Midjourney, DALL-E, Flux</p>
+                <p class="text-emerald-500 text-2xl font-bold mb-2">от 100 ₽/картинка</p>
+                <p class="text-gray-500 text-sm">Проекты и презентации — договорная</p>
+            </div>
+
+            <!-- Подписка -->
+            <div class="bg-[#0A0A0A] border border-[#222222] rounded-xl p-8 hover:border-emerald-500 transition-all duration-300 hover:-translate-y-2 fade-in">
+                <div class="text-6xl mb-6">⚡</div>
+                <h3 class="text-2xl font-bold text-white mb-4">ПОДПИСКА БЕЗ VPN</h3>
+                <p class="text-gray-400 mb-6">GPT-4o, Gemini, Nano Banana — работают в России без иностранных карт</p>
+                <div class="space-y-2 mb-4">
+                    <p class="text-white"><span class="text-gray-400">Пробный:</span> <span class="text-emerald-500 font-bold">250₽/мес</span> <span class="text-gray-500 text-sm">(лимит 100₽)</span></p>
+                    <p class="text-white"><span class="text-gray-400">Полный:</span> <span class="text-emerald-500 font-bold">900₽/мес</span> <span class="text-gray-500 text-sm">(лимит 500₽)</span> <span class="text-orange-500">⭐</span></p>
+                </div>
+                <p class="text-gray-500 text-sm">Ключ и инструкция за 5 минут. Гарантия возврата</p>
+            </div>
+
+            <!-- Оживление фото -->
+            <div class="bg-[#0A0A0A] border border-[#222222] rounded-xl p-8 hover:border-emerald-500 transition-all duration-300 hover:-translate-y-2 fade-in">
+                <div class="text-6xl mb-6">🎬</div>
+                <h3 class="text-2xl font-bold text-white mb-4">ОЖИВЛЕНИЕ ФОТО</h3>
+                <p class="text-gray-400 mb-6">Анимация фотографий через Seedance — превращаю статику в видео</p>
+                <p class="text-emerald-500 text-2xl font-bold mb-2">от 390 ₽/видео</p>
+                <p class="text-gray-500 text-sm">Сложные проекты и спецэффекты — договорная</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- СРАВНЕНИЕ С РЫНКОМ -->
+<section class="py-20 bg-[#0A0A0A]">
+    <div class="container mx-auto px-6">
+        <h2 class="text-5xl md:text-6xl font-black bebas text-white text-center mb-4 fade-in">СРАВНИ С РЫНКОМ</h2>
+        <p class="text-gray-400 text-center mb-16 text-lg fade-in">Почему клиенты выбирают нас</p>
+        
+        <div class="max-w-4xl mx-auto fade-in">
+            <div class="bg-[#111111] border border-[#222222] rounded-xl overflow-hidden">
+                
+                <div class="grid grid-cols-3 bg-[#0A0A0A] border-b border-[#222222]">
+                    <div class="p-6 text-gray-400 font-bold">Услуга</div>
+                    <div class="p-6 text-gray-400 font-bold text-center">У конкурентов</div>
+                    <div class="p-6 text-emerald-500 font-bold text-center">У нас</div>
+                </div>
+
+                <div class="grid grid-cols-3 border-b border-[#222222]">
+                    <div class="p-6 text-white">Настройка ИИ-ассистента</div>
+                    <div class="p-6 text-gray-500 text-center line-through">5 000 – 8 000 ₽</div>
+                    <div class="p-6 text-emerald-500 font-bold text-center text-xl">3 000 ₽</div>
+                </div>
+
+                <div class="grid grid-cols-3 border-b border-[#222222] bg-[#0d0d0d]">
+                    <div class="p-6 text-white">Гайд по нейросетям</div>
+                    <div class="p-6 text-gray-500 text-center line-through">1 500 – 3 000 ₽</div>
+                    <div class="p-6 text-emerald-500 font-bold text-center text-xl">790 ₽</div>
+                </div>
+
+                <div class="grid grid-cols-3 border-b border-[#222222]">
+                    <div class="p-6 text-white">Генерация 1 картинки</div>
+                    <div class="p-6 text-gray-500 text-center line-through">300 – 500 ₽</div>
+                    <div class="p-6 text-emerald-500 font-bold text-center text-xl">100 ₽</div>
+                </div>
+
+                <div class="grid grid-cols-3 border-b border-[#222222] bg-[#0d0d0d]">
+                    <div class="p-6 text-white">Оживление фото</div>
+                    <div class="p-6 text-gray-500 text-center line-through">800 – 1 500 ₽</div>
+                    <div class="p-6 text-emerald-500 font-bold text-center text-xl">390 ₽</div>
+                </div>
+
+                <div class="grid grid-cols-3">
+                    <div class="p-6 text-white">Подписка GPT без VPN</div>
+                    <div class="p-6 text-gray-500 text-center line-through">1 000 – 2 000 ₽/мес</div>
+                    <div class="p-6 text-emerald-500 font-bold text-center text-xl">от 250 ₽/мес</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- КАК МЫ РАБОТАЕМ -->
+<section class="py-20 bg-[#111111]">
+    <div class="container mx-auto px-6">
+        <h2 class="text-5xl md:text-6xl font-black bebas text-white text-center mb-16 fade-in">КАК МЫ РАБОТАЕМ</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            
+            <div class="text-center fade-in">
+                <div class="text-7xl font-black bebas text-emerald-500 opacity-30 mb-4">01</div>
+                <h3 class="text-2xl font-bold text-white mb-4">Пишешь в Telegram</h3>
+                <p class="text-gray-400">Описываешь задачу или выбираешь тариф</p>
+            </div>
+
+            <div class="text-center fade-in">
+                <div class="text-7xl font-black bebas text-emerald-500 opacity-30 mb-4">02</div>
+                <h3 class="text-2xl font-bold text-white mb-4">Оплачиваешь</h3>
+                <p class="text-gray-400">Удобным способом: карта, СБП, крипта</p>
+            </div>
+
+            <div class="text-center fade-in">
+                <div class="text-7xl font-black bebas text-emerald-500 opacity-30 mb-4">03</div>
+                <h3 class="text-2xl font-bold text-white mb-4">Получаешь результат</h3>
+                <p class="text-gray-400">От 5 минут до 1.5 часов — зависит от услуги</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- БЛОГ / ПОЛЕЗНЫЕ МАТЕРИАЛЫ -->
+<section id="blog" class="py-20 bg-[#0A0A0A]">
+    <div class="container mx-auto px-6">
+        <p class="text-emerald-500 text-center mb-4 font-semibold tracking-wider fade-in">ПОЛЕЗНЫЕ МАТЕРИАЛЫ</p>
+        <h2 class="text-5xl md:text-6xl font-black bebas text-white text-center mb-4 fade-in">БЛОГ</h2>
+        <p class="text-gray-400 text-center mb-16 text-lg fade-in">Учись работать с ИИ бесплатно — статьи, гайды и лайфхаки</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Статья 1 -->
+            <article class="bg-[#111111] border border-[#222222] rounded-xl overflow-hidden hover:border-emerald-500 transition-all duration-300 hover:-translate-y-2 fade-in">
+                <div class="h-48 bg-gradient-to-br from-emerald-900/40 to-[#0A0A0A] flex items-center justify-center">
+                    <div class="text-6xl">🤖</div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-xs text-emerald-500 bg-emerald-500/10 px-3 py-1 rounded-full">ГАЙД</span>
+                        <span class="text-xs text-gray-500">5 мин чтения</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Топ-10 промтов для ChatGPT в 2026 году</h3>
+                    <p class="text-gray-400 text-sm mb-4">Собрали лучшие промты для текстов, кода, картинок и анализа данных. Копируй и используй.</p>
+                    <a href="blog1.html" class="text-emerald-500 font-semibold text-sm hover:text-emerald-400 transition">Читать →</a>
+                </div>
+            </article>
+
+            <!-- Статья 2 -->
+            <article class="bg-[#111111] border border-[#222222] rounded-xl overflow-hidden hover:border-emerald-500 transition-all duration-300 hover:-translate-y-2 fade-in">
+                <div class="h-48 bg-gradient-to-br from-orange-900/40 to-[#0A0A0A] flex items-center justify-center">
+                    <div class="text-6xl">🎨</div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-xs text-orange-500 bg-orange-500/10 px-3 py-1 rounded-full">ТУТОРИАЛ</span>
+                        <span class="text-xs text-gray-500">7 мин чтения</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Как генерировать картинки в Midjourney</h3>
+                    <p class="text-gray-400 text-sm mb-4">Пошаговая инструкция: от регистрации до первых шедевров. Разбор стилей и параметров.</p>
+                    <a href="blog2.html" class="text-emerald-500 font-semibold text-sm hover:text-emerald-400 transition">Читать →</a>
+                </div>
+            </article>
+
+            <!-- Статья 3 -->
+            <article class="bg-[#111111] border border-[#222222] rounded-xl overflow-hidden hover:border-emerald-500 transition-all duration-300 hover:-translate-y-2 fade-in">
+                <div class="h-48 bg-gradient-to-br from-blue-900/40 to-[#0A0A0A] flex items-center justify-center">
+                    <div class="text-6xl">💡</div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-xs text-blue-500 bg-blue-500/10 px-3 py-1 rounded-full">ИДЕИ</span>
+                        <span class="text-xs text-gray-500">4 мин чтения</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">5 способов монетизировать навыки работы с ИИ</h3>
+                    <p class="text-gray-400 text-sm mb-4">Как превратить умение работать с нейросетями в стабильный доход от 50 000 ₽/мес.</p>
+                    <a href="blog3.html" class="text-emerald-500 font-semibold text-sm hover:text-emerald-400 transition">Читать →</a>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- CTA под блогом -->
+        <div class="text-center mt-12 fade-in">
+            <p class="text-gray-400 mb-4">Хочешь больше полезных материалов?</p>
+            <a href="https://t.me/ai_assistent_gaid" class="inline-block border border-emerald-500 text-emerald-500 px-8 py-3 rounded-full hover:bg-emerald-900/30 transition font-semibold">Подпишись на Telegram-канал</a>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="py-20 bg-[#111111]">
+    <div class="container mx-auto px-6 max-w-3xl">
+        <h2 class="text-5xl md:text-6xl font-black bebas text-white text-center mb-12 fade-in">ЧАСТЫЕ ВОПРОСЫ</h2>
+        
+        <div class="space-y-4">
+            <details class="bg-[#0A0A0A] border border-[#222222] rounded-lg p-6 cursor-pointer fade-in">
+                <summary class="text-white font-bold text-lg pr-8">Нужен ли мне VPN для работы с ИИ?</summary>
+                <p class="text-gray-400 mt-4">Нет! После настройки всё работает напрямую из России. Никаких VPN и иностранных карт.</p>
+            </details>
+            
+            <details class="bg-[#0A0A0A] border border-[#222222] rounded-lg p-6 cursor-pointer fade-in">
+                <summary class="text-white font-bold text-lg pr-8">Сколько времени занимает настройка?</summary>
+                <p class="text-gray-400 mt-4">Гайд — изучаешь сам за 1-2 часа. Тариф "Профи" — созвон 1.5 часа, и всё готово.</p>
+            </details>
+            
+            <details class="bg-[#0A0A0A] border border-[#222222] rounded-lg p-6 cursor-pointer fade-in">
+                <summary class="text-white font-bold text-lg pr-8">Что если не получится настроить?</summary>
+                <p class="text-gray-400 mt-4">Верну деньги без вопросов. Но за 50+ настроек ещё никто не просил возврат.</p>
+            </details>
+
+            <details class="bg-[#0A0A0A] border border-[#222222] rounded-lg p-6 cursor-pointer fade-in">
+                <summary class="text-white font-bold text-lg pr-8">Подойдёт ли мне ИИ-ассистент, если я не программист?</summary>
+                <p class="text-gray-400 mt-4">Да! 90% моих клиентов — не программисты. Объясняю всё простым языком, показываю на твоём экране.</p>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- ФИНАЛЬНЫЙ CTA -->
+<section class="py-20 bg-gradient-to-b from-[#0A0A0A] to-[#0d2818] relative overflow-hidden">
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-3xl"></div>
+    <div class="container mx-auto px-6 text-center relative z-10 fade-in">
+        <h2 class="text-5xl md:text-6xl font-black bebas text-white mb-6">ГОТОВ НАЧАТЬ?</h2>
+        <p class="text-gray-400 text-xl mb-12">Напиши в Telegram — обсудим задачу и подберём тариф</p>
+        <a href="https://t.me/Vladis345" class="inline-block bg-emerald-500 text-white px-12 py-5 rounded-full text-lg font-bold hover:bg-emerald-600 transition-all duration-300 hover:scale-105 shadow-lg shadow-emerald-500/50">Написать в Telegram</a>
+        <p class="text-gray-500 text-sm mt-6">Отвечаю в течение 30 минут</p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contacts" class="bg-[#050505] border-t border-[#222222] py-12">
+    <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div>
+                <h3 class="text-3xl font-black bebas text-emerald-500 mb-4">AI.PRO</h3>
+                <p class="text-gray-400">Настройка ИИ и нейросетей под ключ. Работаем с 2024 года.</p>
+            </div>
+            <div>
+                <h4 class="text-xl font-bold text-white mb-4">Меню</h4>
+                <ul class="space-y-2">
+                    <li><a href="#services" class="text-gray-400 hover:text-emerald-500 transition">Услуги</a></li>
+                    <li><a href="#pricing" class="text-gray-400 hover:text-emerald-500 transition">Тарифы</a></li>
+                    <li><a href="#blog" class="text-gray-400 hover:text-emerald-500 transition">Блог</a></li>
+                    <li><a href="#contacts" class="text-gray-400 hover:text-emerald-500 transition">Контакты</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-xl font-bold text-white mb-4">Контакты</h4>
+                <ul class="space-y-2">
+                    <li><a href="https://t.me/Vladis345" class="text-gray-400 hover:text-emerald-500 transition">Telegram: @Vladis345</a></li>
+                    <li class="text-gray-400">WhatsApp: +7 (989) 215-67-61</li>
+                    <li class="text-gray-400">Email: -</li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-[#222222] pt-8 text-center text-gray-500">
+            <p>© 2026 AI.PRO. Все права защищены.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Анимация при скролле
+    document.addEventListener('DOMContentLoaded', () => {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    });
+
+    // Эффект хедера при скролле
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+</script>
+
+</body>
+</html>
