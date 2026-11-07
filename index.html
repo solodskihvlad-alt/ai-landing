@@ -50,6 +50,19 @@
             padding: 0 20px;
         }
 
+        /* ===== ПРОГРЕСС-БАР СКРОЛЛА ===== */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--emerald), var(--emerald-dark));
+            z-index: 1002;
+            width: 0;
+            box-shadow: 0 0 10px var(--emerald);
+            transition: width 0.1s;
+        }
+
         /* ===== HEADER ===== */
         header {
             position: fixed;
@@ -60,6 +73,12 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+            transition: all 0.3s;
+        }
+
+        header.scrolled {
+            background: rgba(10, 14, 39, 0.98);
+            box-shadow: 0 5px 30px rgba(0, 255, 136, 0.1);
         }
 
         .header-inner {
@@ -77,10 +96,39 @@
             font-size: 24px;
             color: var(--text-white);
             text-decoration: none;
+            animation: logoAppear 1s ease-out;
+            transition: all 0.3s;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 10px var(--emerald-glow));
         }
 
         .logo span {
-            color: var(--emerald);
+            background: linear-gradient(90deg, #00FF88, #10B981, #00FF88);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes logoAppear {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shimmer {
+            to {
+                background-position: 200% center;
+            }
         }
 
         .header-cta {
@@ -92,6 +140,27 @@
             font-weight: 600;
             font-size: 14px;
             transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            animation: logoAppear 1s ease-out 0.3s both;
+        }
+
+        .header-cta::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .header-cta:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
         .header-cta:hover {
@@ -121,6 +190,33 @@
                 radial-gradient(circle at 20% 50%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 80% 80%, rgba(0, 255, 136, 0.05) 0%, transparent 50%);
             pointer-events: none;
+            animation: moveParticles 20s linear infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle, var(--emerald) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.05;
+            animation: moveDots 30s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes moveParticles {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes moveDots {
+            from { transform: translate(0, 0); }
+            to { transform: translate(50px, 50px); }
         }
 
         .hero-inner {
@@ -138,11 +234,19 @@
             font-size: 56px;
             line-height: 1.1;
             margin-bottom: 20px;
+            animation: fadeInUp 1s ease-out 0.3s both;
         }
 
         .hero-content h1 span {
             color: var(--emerald);
             text-shadow: 0 0 30px var(--emerald-glow);
+            display: inline-block;
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            from { text-shadow: 0 0 20px var(--emerald-glow); }
+            to { text-shadow: 0 0 40px var(--emerald-glow), 0 0 60px rgba(0, 255, 136, 0.2); }
         }
 
         .hero-content p {
@@ -150,12 +254,30 @@
             color: var(--text-muted);
             margin-bottom: 30px;
             max-width: 500px;
+            animation: fadeInUp 1s ease-out 0.6s both;
         }
 
         .hero-buttons {
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .btn {
@@ -168,6 +290,26 @@
             transition: all 0.3s;
             border: none;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
         .btn-primary {
@@ -177,8 +319,8 @@
 
         .btn-primary:hover {
             background: var(--emerald-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px var(--emerald-glow);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px var(--emerald-glow);
         }
 
         .btn-secondary {
@@ -190,6 +332,8 @@
         .btn-secondary:hover {
             background: var(--emerald);
             color: var(--bg-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px var(--emerald-glow);
         }
 
         .btn-disabled {
@@ -205,6 +349,7 @@
             justify-content: center;
             align-items: center;
             max-height: 560px;
+            animation: fadeIn 1.5s ease-out 0.5s both;
         }
 
         .hero-image img {
@@ -215,6 +360,12 @@
             box-shadow: 0 20px 60px rgba(0, 255, 136, 0.2);
             object-fit: contain;
             border: 2px solid rgba(0, 255, 136, 0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         /* ===== БЕСПЛАТНЫЙ ЛИД-МАГНИТ ===== */
@@ -255,12 +406,17 @@
                 0 0 60px rgba(0, 255, 136, 0.3),
                 0 0 120px rgba(0, 255, 136, 0.1),
                 inset 0 0 60px rgba(0, 255, 136, 0.05);
-            animation: glow 2s ease-in-out infinite alternate;
+            animation: glow 2s ease-in-out infinite alternate, borderPulse 3s ease-in-out infinite;
         }
 
         @keyframes glow {
             from { box-shadow: 0 0 60px rgba(0, 255, 136, 0.3), 0 0 120px rgba(0, 255, 136, 0.1); }
             to { box-shadow: 0 0 80px rgba(0, 255, 136, 0.5), 0 0 160px rgba(0, 255, 136, 0.2); }
+        }
+
+        @keyframes borderPulse {
+            0%, 100% { border-color: var(--emerald); }
+            50% { border-color: rgba(0, 255, 136, 0.5); }
         }
 
         .magnet-badge {
@@ -277,6 +433,12 @@
             font-size: 18px;
             letter-spacing: 2px;
             box-shadow: 0 5px 20px rgba(0, 255, 136, 0.5);
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
         }
 
         .magnet-content {
@@ -312,11 +474,23 @@
             border: 1px solid rgba(0, 255, 136, 0.2);
             padding: 20px;
             border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .magnet-feature:hover {
+            transform: translateY(-5px);
+            border-color: var(--emerald);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
         }
 
         .magnet-feature-icon {
             font-size: 24px;
             margin-bottom: 10px;
+            transition: transform 0.3s;
+        }
+
+        .magnet-feature:hover .magnet-feature-icon {
+            transform: scale(1.2) rotate(10deg);
         }
 
         .magnet-feature h4 {
@@ -374,6 +548,11 @@
             justify-content: center;
             font-weight: 900;
             font-size: 18px;
+            transition: all 0.3s;
+        }
+
+        .magnet-step:hover .step-number {
+            transform: scale(1.2) rotate(360deg);
         }
 
         .step-text {
@@ -425,7 +604,7 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 16px;
             padding: 30px;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
         }
@@ -439,13 +618,13 @@
             height: 3px;
             background: var(--emerald);
             transform: scaleX(0);
-            transition: transform 0.3s;
+            transition: transform 0.4s;
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px) scale(1.02);
             border-color: var(--emerald);
-            box-shadow: 0 10px 40px rgba(0, 255, 136, 0.1);
+            box-shadow: 0 20px 60px rgba(0, 255, 136, 0.3);
         }
 
         .service-card:hover::before {
@@ -455,6 +634,12 @@
         .service-icon {
             font-size: 32px;
             margin-bottom: 15px;
+            transition: transform 0.5s;
+            display: inline-block;
+        }
+
+        .service-card:hover .service-icon {
+            transform: rotate(360deg) scale(1.2);
         }
 
         .service-card h3 {
@@ -474,6 +659,12 @@
             font-size: 28px;
             color: var(--emerald);
             margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover .service-price {
+            transform: scale(1.1);
+            text-shadow: 0 0 20px var(--emerald-glow);
         }
 
         .service-price small {
@@ -504,11 +695,23 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            transition: all 0.3s;
+        }
+
+        .include-item:hover {
+            transform: translateX(10px);
+            border-color: var(--emerald);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
         }
 
         .include-icon {
             font-size: 24px;
             color: var(--emerald);
+            transition: transform 0.3s;
+        }
+
+        .include-item:hover .include-icon {
+            transform: scale(1.3) rotate(15deg);
         }
 
         .include-item h4 {
@@ -539,12 +742,25 @@
             padding: 30px;
             border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s;
+        }
+
+        .review-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 40px rgba(0, 255, 136, 0.2);
+            border-color: var(--emerald);
         }
 
         .review-stars {
             color: var(--emerald);
             font-size: 20px;
             margin-bottom: 15px;
+            animation: starPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes starPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
 
         .review-text {
@@ -560,7 +776,7 @@
             font-size: 14px;
         }
 
-        /* ===== TELEGRAM КАНАЛ (НОВОЕ) ===== */
+        /* ===== TELEGRAM КАНАЛ ===== */
         .tg-channel {
             padding: 60px 20px;
         }
@@ -575,6 +791,12 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .tg-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 60px rgba(0, 255, 136, 0.3);
         }
 
         .tg-card::before {
@@ -598,6 +820,7 @@
             margin-bottom: 15px;
             position: relative;
             z-index: 1;
+            animation: bounce 2s ease-in-out infinite;
         }
 
         .tg-card h2 {
@@ -643,6 +866,16 @@
             margin-bottom: 15px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(0, 255, 136, 0.3);
+        }
+
+        .faq-item.active {
+            border-color: var(--emerald);
+            box-shadow: 0 5px 20px rgba(0, 255, 136, 0.2);
         }
 
         .faq-question {
@@ -668,20 +901,20 @@
         }
 
         .faq-item.active .faq-question::after {
-            transform: rotate(45deg);
+            transform: rotate(135deg);
         }
 
         .faq-answer {
             padding: 0 25px;
             max-height: 0;
             overflow: hidden;
-            transition: all 0.3s;
+            transition: max-height 0.5s ease-out, padding 0.3s;
             color: var(--text-muted);
         }
 
         .faq-item.active .faq-answer {
             padding: 0 25px 20px;
-            max-height: 200px;
+            max-height: 300px;
         }
 
         /* ===== CTA ===== */
@@ -723,10 +956,12 @@
         footer a {
             color: var(--emerald);
             text-decoration: none;
+            transition: all 0.3s;
         }
 
         footer a:hover {
             text-decoration: underline;
+            text-shadow: 0 0 10px var(--emerald-glow);
         }
 
         /* ===== АДАПТИВ ===== */
@@ -768,25 +1003,52 @@
                 padding: 8px 15px;
                 font-size: 12px;
             }
+
+            /* Отключаем тяжёлые анимации на мобильных */
+            .hero::after {
+                display: none;
+            }
+
+            .hero-image img {
+                animation: none;
+            }
         }
 
-        /* ===== АНИМАЦИИ ===== */
+        /* ===== АНИМАЦИИ ПРИ СКРОЛЛЕ ===== */
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
+
+        .service-card.fade-in:nth-child(1) { transition-delay: 0.1s; }
+        .service-card.fade-in:nth-child(2) { transition-delay: 0.2s; }
+        .service-card.fade-in:nth-child(3) { transition-delay: 0.3s; }
+
+        .include-item.fade-in:nth-child(1) { transition-delay: 0.1s; }
+        .include-item.fade-in:nth-child(2) { transition-delay: 0.15s; }
+        .include-item.fade-in:nth-child(3) { transition-delay: 0.2s; }
+        .include-item.fade-in:nth-child(4) { transition-delay: 0.25s; }
+        .include-item.fade-in:nth-child(5) { transition-delay: 0.3s; }
+        .include-item.fade-in:nth-child(6) { transition-delay: 0.35s; }
+
+        .review-card.fade-in:nth-child(1) { transition-delay: 0.1s; }
+        .review-card.fade-in:nth-child(2) { transition-delay: 0.2s; }
+        .review-card.fade-in:nth-child(3) { transition-delay: 0.3s; }
     </style>
 </head>
 <body>
 
+    <!-- ПРОГРЕСС-БАР СКРОЛЛА -->
+    <div class="scroll-progress"></div>
+
     <!-- HEADER -->
-    <header>
+    <header id="header">
         <div class="header-inner">
             <a href="#" class="logo">Neuro<span>Help</span></a>
             <a href="https://t.me/Vladis345" class="header-cta" target="_blank">💬 Написать в Telegram</a>
@@ -876,7 +1138,7 @@
             <div class="category">
                 <h3 class="category-title">🟢 Быстрый старт (до 1000₽)</h3>
                 <div class="services-grid">
-                    <div class="service-card">
+                    <div class="service-card fade-in">
                         <div class="service-icon">🔓</div>
                         <h3>Подписка на GPT без VPN</h3>
                         <p>Доступ к ChatGPT, Claude, Gemini без VPN и блокировок. Работает стабильно из России.</p>
@@ -884,7 +1146,7 @@
                         <a href="https://t.me/Vladis345" class="btn btn-primary" target="_blank">Заказать</a>
                     </div>
 
-                    <div class="service-card">
+                    <div class="service-card fade-in">
                         <div class="service-icon">🎭</div>
                         <h3>Оживление фото</h3>
                         <p>Ч/Б фото → цветное + анимация. Идеально для подарка родителям или контента в соцсетях.</p>
@@ -892,7 +1154,7 @@
                         <a href="https://t.me/Vladis345" class="btn btn-primary" target="_blank">Заказать</a>
                     </div>
 
-                    <div class="service-card">
+                    <div class="service-card fade-in">
                         <div class="service-icon">📊</div>
                         <h3>Автоматизация Excel через ИИ</h3>
                         <p>Готовые формулы + 30+ промптов для автоматизации таблиц. Экономия 10 часов в неделю.</p>
@@ -906,7 +1168,7 @@
             <div class="category">
                 <h3 class="category-title">🟡 Обучение (1000-3000₽)</h3>
                 <div class="services-grid">
-                    <div class="service-card">
+                    <div class="service-card fade-in">
                         <div class="service-icon">🤖</div>
                         <h3>Настройка ИИ-ассистента</h3>
                         <p>PDF-гайд с полной информацией по настройке AI-ассистента под твои задачи + персональная поддержка 7 дней. Всё, что нужно — в одном файле.</p>
@@ -914,7 +1176,7 @@
                         <a href="https://t.me/Vladis345" class="btn btn-primary" target="_blank">Заказать</a>
                     </div>
 
-                    <div class="service-card">
+                    <div class="service-card fade-in">
                         <div class="service-icon">🎓</div>
                         <h3>Обучение нейросетям (базовый курс)</h3>
                         <p>60-минутный созвон. ChatGPT, Claude, Gemini. Научу писать промты. 50 промтов в подарок.</p>
@@ -922,7 +1184,7 @@
                         <a href="https://t.me/Vladis345" class="btn btn-primary" target="_blank">Записаться</a>
                     </div>
 
-                    <div class="service-card">
+                    <div class="service-card fade-in">
                         <div class="service-icon">⚡</div>
                         <h3>Созвон: обучение по ИИ-ассистенту</h3>
                         <p>Персональный созвон на 90 минут. Установим AI-ассистента, разберём промты, ответим на все вопросы. Практика с первой минуты.</p>
@@ -936,7 +1198,7 @@
             <div class="category">
                 <h3 class="category-title">🔴 Премиум (от 3000₽)</h3>
                 <div class="services-grid">
-                    <div class="service-card">
+                    <div class="service-card fade-in">
                         <div class="service-icon">👤</div>
                         <h3>AI-персонаж для бизнеса</h3>
                         <p>Уникальный AI-персонаж с твоим лицом/стилем. 10 фото + говорящее видео для соцсетей.</p>
@@ -944,7 +1206,7 @@
                         <a href="#" class="btn btn-disabled">Скоро</a>
                     </div>
 
-                    <div class="service-card">
+                    <div class="service-card fade-in">
                         <div class="service-icon">🌐</div>
                         <h3>Сайт-лендинг под ключ</h3>
                         <p>Готовый продающий сайт за 3 дня. Дизайн, тексты, адаптив под мобильные устройства.</p>
@@ -952,7 +1214,7 @@
                         <a href="https://t.me/Vladis345" class="btn btn-primary" target="_blank">Обсудить проект</a>
                     </div>
 
-                    <div class="service-card">
+                    <div class="service-card fade-in">
                         <div class="service-icon">🏢</div>
                         <h3>AI-ассистент под ключ для бизнеса</h3>
                         <p>AI-бот для бизнеса: отвечает клиентам, пишет посты, генерирует контент 24/7.</p>
@@ -970,42 +1232,42 @@
             <h2 class="section-title">Что <span>входит</span> в каждый курс</h2>
             <p class="section-subtitle">Стандартный пакет для всех услуг обучения</p>
             <div class="includes-grid">
-                <div class="include-item">
+                <div class="include-item fade-in">
                     <div class="include-icon">⚙️</div>
                     <div>
                         <h4>Пошаговая настройка</h4>
                         <p>Всё по полочкам, без воды</p>
                     </div>
                 </div>
-                <div class="include-item">
+                <div class="include-item fade-in">
                     <div class="include-icon">💬</div>
                     <div>
                         <h4>30+ готовых промптов</h4>
                         <p>Копируй и используй</p>
                     </div>
                 </div>
-                <div class="include-item">
+                <div class="include-item fade-in">
                     <div class="include-icon">📄</div>
                     <div>
                         <h4>Тексты и посты</h4>
                         <p>Для соцсетей и бизнеса</p>
                     </div>
                 </div>
-                <div class="include-item">
+                <div class="include-item fade-in">
                     <div class="include-icon">📊</div>
                     <div>
                         <h4>Таблицы и код</h4>
                         <p>Готовые решения</p>
                     </div>
                 </div>
-                <div class="include-item">
+                <div class="include-item fade-in">
                     <div class="include-icon">🎧</div>
                     <div>
                         <h4>Поддержка автора</h4>
                         <p>7 дней после урока</p>
                     </div>
                 </div>
-                <div class="include-item">
+                <div class="include-item fade-in">
                     <div class="include-icon">📱</div>
                     <div>
                         <h4>Закрытый Telegram-канал</h4>
@@ -1022,17 +1284,17 @@
             <h2 class="section-title">130+ <span>довольных</span> клиентов</h2>
             <p class="section-subtitle">Что говорят те, кто уже работает с ИИ</p>
             <div class="reviews-grid">
-                <div class="review-card">
+                <div class="review-card fade-in">
                     <div class="review-stars">⭐⭐⭐⭐⭐</div>
                     <p class="review-text">"Настроили ChatGPT за 40 минут, теперь работаю в 3 раза быстрее! Отвечаю клиентам за секунды."</p>
                     <div class="review-author">— Анна, SMM-специалист</div>
                 </div>
-                <div class="review-card">
+                <div class="review-card fade-in">
                     <div class="review-stars">⭐⭐⭐⭐⭐</div>
                     <p class="review-text">"Сделали AI-персонажа для моего магазина. Конверсия в Stories выросла на 40%! Окупилось за неделю."</p>
                     <div class="review-author">— Дмитрий, владелец магазина</div>
                 </div>
-                <div class="review-card">
+                <div class="review-card fade-in">
                     <div class="review-stars">⭐⭐⭐⭐⭐</div>
                     <p class="review-text">"Курс по нейросетям — лучшее вложение за последний год. Теперь пишу статьи в 5 раз быстрее."</p>
                     <div class="review-author">— Мария, копирайтер</div>
@@ -1041,10 +1303,10 @@
         </div>
     </section>
 
-    <!-- TELEGRAM КАНАЛ (НОВЫЙ БЛОК) -->
+    <!-- TELEGRAM КАНАЛ -->
     <section class="tg-channel">
         <div class="container">
-            <div class="tg-card">
+            <div class="tg-card fade-in">
                 <div class="tg-icon">✈️</div>
                 <h2>Скидка <span>15%</span> для подписчиков канала!</h2>
                 <p>Подписывайся на мой Telegram-канал. Там я делюсь полезной информацией по нейросетям, лайфхаками и эксклюзивными промптами. А для своих подписчиков действует <strong>постоянная скидка 15%</strong> на все услуги!</p>
@@ -1099,6 +1361,22 @@
     </footer>
 
     <script>
+        // Прогресс-бар скролла
+        window.addEventListener('scroll', () => {
+            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            document.querySelector('.scroll-progress').style.width = scrolled + '%';
+        });
+
+        // Эффект header при скролле
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
         // FAQ аккордеон
         document.querySelectorAll('.faq-question').forEach(q => {
             q.addEventListener('click', () => {
@@ -1116,8 +1394,7 @@
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.service-card, .include-item, .review-card, .tg-card').forEach(el => {
-            el.classList.add('fade-in');
+        document.querySelectorAll('.service-card, .include-item, .review-card, .tg-card, .fade-in').forEach(el => {
             observer.observe(el);
         });
 
@@ -1130,6 +1407,15 @@
                     target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
+        });
+
+        // Параллакс эффект для hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            const hero = document.querySelector('.hero-image img');
+            if (hero && scrolled < window.innerHeight) {
+                hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
         });
     </script>
 
