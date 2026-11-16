@@ -1,0 +1,46 @@
+name: NeuroHelp Telegram
+on:
+  schedule:
+    # UTC: 07:00 / 15:00 = Moscow 10:00 / 18:00.
+    # Extra attempts recover delays, without repeating a reserved/sent slot.
+    - cron: '0,20,40 7-8,15-16 * * *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'check = connection only; preview = approved queue only'
+        required: true
+        default: check
+        type: choice
+        options:
+          - check
+          - preview
+permissions:
+  contents: write
+concurrency:
+  group: neurohelp-telegram-publisher
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: main
+      - name: Configure state commits
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+      - name: Preview, check or publish
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          EVENT_NAME: ${{ github.event_name }}
+          REQUESTED_MODE: ${{ inputs.mode }}
+        run: |
+          if [ "$EVENT_NAME" = "schedule" ]; then
+            python3 _telegram/publish.py --mode scheduled
+          elif [ "$REQUESTED_MODE" = "preview" ]; then
+            python3 _telegram/publish.py --mode preview
+          else
+            python3 _telegram/publish.py --mode check
+          fi
