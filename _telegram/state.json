@@ -1,1 +1,14 @@
-{"slots": {}, "posts": {}}
+{
+  "slots": {
+    "2026-11-17/evening": {
+      "post_id": "practice-02",
+      "status": "sending"
+    }
+  },
+  "posts": {
+    "practice-02": {
+      "slot": "2026-11-17/evening",
+      "status": "sending"
+    }
+  }
+}
