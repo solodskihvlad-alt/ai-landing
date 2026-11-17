@@ -2,13 +2,14 @@
   "slots": {
     "2026-11-17/evening": {
       "post_id": "practice-02",
-      "status": "sending"
+      "status": "sent"
     }
   },
   "posts": {
     "practice-02": {
       "slot": "2026-11-17/evening",
-      "status": "sending"
+      "status": "sent",
+      "message_id": 15
     }
   }
 }
