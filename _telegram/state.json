@@ -10,7 +10,7 @@
     },
     "2026-11-18/evening": {
       "post_id": "offer-04",
-      "status": "sending"
+      "status": "sent"
     }
   },
   "posts": {
@@ -26,7 +26,8 @@
     },
     "offer-04": {
       "slot": "2026-11-18/evening",
-      "status": "sending"
+      "status": "sent",
+      "message_id": 17
     }
   }
 }
