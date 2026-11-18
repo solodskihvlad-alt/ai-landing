@@ -44,7 +44,7 @@ jobs:
           REQUESTED_MODE: ${{ inputs.mode }}
         run: |
           python3 -m unittest discover -s _telegram -p test_publish.py
-          if [ "$EVENT_NAME" = "schedule" ] || [ "$EVENT_NAME" = "push" ] || [ "$REQUESTED_MODE" = "scheduled" ]; then
+          if [ "$EVENT_NAME" = "schedule" ] || [ "$REQUESTED_MODE" = "scheduled" ]; then
             python3 _telegram/publish.py --mode scheduled
           elif [ "$REQUESTED_MODE" = "preview" ]; then
             python3 _telegram/publish.py --mode preview
