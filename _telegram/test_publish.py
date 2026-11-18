@@ -5,7 +5,7 @@ import publish
 
 class QueueTests(unittest.TestCase):
     def test_slots(self):
-        for hour, expected in [(9,None),(10,'morning'),(11,'morning'),(12,None),(17,None),(18,'evening'),(19,'evening'),(20,None)]:
+        for hour, expected in [(0,None),(9,None),(10,'morning'),(11,'morning'),(12,'morning'),(17,'morning'),(18,'evening'),(19,'evening'),(20,'evening'),(23,'evening')]:
             self.assertEqual(publish.slot_at(dt.datetime(2026,11,16,hour)),expected)
 
     def test_only_explicit_approval(self):
