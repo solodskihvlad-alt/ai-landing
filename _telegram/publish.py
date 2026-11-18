@@ -14,9 +14,10 @@ EXPECTED_BOT = 'neurohelp_posts_bot'
 MSK = dt.timezone(dt.timedelta(hours=3))
 
 def slot_at(now):
-    if 10 <= now.hour < 12:
+    # Catch up on delayed GitHub Actions runs within the same Moscow day.
+    if 10 <= now.hour < 18:
         return 'morning'
-    if 18 <= now.hour < 20:
+    if 18 <= now.hour < 24:
         return 'evening'
     return None
 
