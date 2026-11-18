@@ -1,9 +1,9 @@
 name: NeuroHelp Telegram
 on:
   schedule:
-    # UTC: 07:00 / 15:00 = Moscow 10:00 / 18:00.
-    # Extra attempts recover delays, without repeating a reserved/sent slot.
-    - cron: '0,15,30,45 7-8,15-16 * * *'
+    # UTC 07:00-20:30 = Moscow 10:00-23:30.
+    # Frequent checks recover late/dropped runs; state prevents duplicates.
+    - cron: '0,30 7-20 * * *'
   push:
     paths:
       - '.github/workflows/telegram-posts.yml'
