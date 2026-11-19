@@ -11,6 +11,10 @@
     "2026-11-18/evening": {
       "post_id": "offer-04",
       "status": "sent"
+    },
+    "2026-11-19/evening": {
+      "post_id": "week01-evening",
+      "status": "sending"
     }
   },
   "posts": {
@@ -28,6 +32,10 @@
       "slot": "2026-11-18/evening",
       "status": "sent",
       "message_id": 17
+    },
+    "week01-evening": {
+      "slot": "2026-11-19/evening",
+      "status": "sending"
     }
   }
 }
