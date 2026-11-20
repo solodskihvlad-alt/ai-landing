@@ -18,7 +18,7 @@
     },
     "2026-11-20/evening": {
       "post_id": "week02-evening",
-      "status": "sending"
+      "status": "sent"
     }
   },
   "posts": {
@@ -44,7 +44,8 @@
     },
     "week02-evening": {
       "slot": "2026-11-20/evening",
-      "status": "sending"
+      "status": "sent",
+      "message_id": 20
     }
   }
 }
