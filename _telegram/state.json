@@ -43,6 +43,10 @@
     "2026-11-26/evening": {
       "post_id": "nov24-a02",
       "status": "sent"
+    },
+    "2026-11-27/evening": {
+      "post_id": "nov24-a04",
+      "status": "sending"
     }
   },
   "posts": {
@@ -100,6 +104,10 @@
       "slot": "2026-11-26/evening",
       "status": "sent",
       "message_id": 30
+    },
+    "nov24-a04": {
+      "slot": "2026-11-27/evening",
+      "status": "sending"
     }
   }
 }
